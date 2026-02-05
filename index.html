@@ -12,7 +12,6 @@
         :root {
             --primary-gold: #ffc107; 
             --secondary-yellow: #ffc107;
-            --accent-blue: #0056b3;
             --light-bg: #ffffff;
             --card-bg: #fdfdfd;
             --text-main: #2d2d2d;
@@ -27,7 +26,7 @@
             --nav-bg: rgba(18, 18, 18, 0.95);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body { 
             background-color: var(--light-bg); 
             color: var(--text-main); 
@@ -37,7 +36,7 @@
             line-height: 1.6;
         }
 
-        /* Navigation */
+        /* --- Navigation --- */
         nav {
             position: fixed; top: 0; width: 100%; z-index: 2000;
             display: flex; justify-content: space-between; align-items: center;
@@ -45,75 +44,102 @@
             backdrop-filter: blur(10px); border-bottom: 1px solid rgba(128,128,128,0.1);
         }
 
-        @keyframes floatLogo {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-6px) rotate(2deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
+        .nav-links { display: flex; list-style: none; gap: 15px; }
+        
+        /* التعديل هنا: إضافة الإطار الذهبي للروابط */
+        .nav-links a { 
+            text-decoration: none; color: var(--text-main); 
+            font-weight: 600; font-size: 15px; transition: 0.3s;
+            border: 1.5px solid var(--primary-gold); /* إطار ذهبي */
+            padding: 6px 18px; 
+            border-radius: 25px; /* حواف دائرية */
+        }
+        
+        .nav-links a:hover { 
+            background-color: var(--primary-gold); 
+            color: #000; /* تغيير لون النص عند المرور */
         }
 
-        .logo img { 
-            height: 55px; 
-            animation: floatLogo 4s ease-in-out infinite;
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
-        }
+        .logo img { height: 50px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); }
 
-        .controls { display: flex; gap: 8px; align-items: center; }
+        .controls { display: flex; gap: 15px; align-items: center; }
         .control-btn {
             background: none; border: 1.5px solid var(--primary-gold);
             color: var(--primary-gold); padding: 5px 12px; border-radius: 20px;
             cursor: pointer; font-size: 13px; font-weight: 700; transition: var(--transition);
         }
-        body.dark-mode .control-btn { border-color: var(--secondary-yellow); color: var(--secondary-yellow); }
 
-        /* Hero Section */
+        /* --- Hero Section --- */
         .hero {
-            min-height: 100vh; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center;
-            text-align: center; 
-            padding: 120px 20px 60px;
-            background-image: url('B.jpeg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            text-align: center; padding: 120px 20px 60px;
+            background-image: url('B.jpeg'); background-size: cover;
+            background-position: center; background-repeat: no-repeat; background-attachment: fixed;
         }
 
-        /* General Section Styling */
-        section { padding: 80px 5%; }
-        .section-title { text-align: center; margin-bottom: 50px; font-size: 2rem; position: relative; }
-        .section-title::after { content: ''; width: 60px; height: 4px; background: var(--primary-gold); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); border-radius: 2px; }
+        /* --- Sections Styling --- */
+        section { padding: 100px 8%; }
+        .section-title { text-align: center; margin-bottom: 60px; font-size: 2.5rem; position: relative; font-weight: 800; }
+        .section-title::after { content: ''; width: 70px; height: 5px; background: var(--primary-gold); position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); border-radius: 3px; }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         
         .card {
-            background: var(--card-bg); padding: 35px; border-radius: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: var(--transition);
-            border: 1px solid rgba(128,128,128,0.08);
+            background: var(--card-bg); padding: 40px; border-radius: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03); transition: var(--transition);
+            border: 1px solid rgba(128,128,128,0.1);
         }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); border-color: var(--primary-gold); }
-        .card i { font-size: 2.5rem; margin-bottom: 20px; color: var(--primary-gold); display: block; }
-        .card h3, .card h4 { margin-bottom: 15px; color: var(--primary-gold); }
+        .card:hover { transform: translateY(-10px); border-color: var(--primary-gold); box-shadow: 0 15px 35px rgba(255, 193, 7, 0.15); }
+        .card i { font-size: 3rem; margin-bottom: 25px; color: var(--primary-gold); }
+        .card h3, .card h4 { margin-bottom: 15px; color: var(--primary-gold); font-weight: 700; }
         .card ul { list-style: none; }
-        .card ul li { margin-bottom: 8px; position: relative; padding-left: 20px; }
-        .card ul li::before { content: '•'; color: var(--secondary-yellow); position: absolute; left: 0; font-weight: bold; }
+        .card ul li { margin-bottom: 10px; position: relative; padding-left: 25px; }
+        .card ul li::before { content: '✓'; color: var(--primary-gold); position: absolute; left: 0; font-weight: bold; }
+
+        /* --- Product Cards --- */
+        .product-card {
+            height: 350px; padding: 0; overflow: hidden; position: relative;
+            display: flex; align-items: center; justify-content: center;
+            border: 2px solid transparent; margin: 0 2px;
+        }
+        
+        .product-card-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-size: contain; background-position: center; background-repeat: no-repeat;
+            transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+
+        .product-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%);
+            z-index: 1;
+        }
+
+        .product-card:hover {
+            border-color: var(--primary-gold);
+            box-shadow: 0 0 30px rgba(255, 193, 7, 0.4);
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        .product-card:hover .product-card-bg { transform: scale(1.1); }
+
+        .product-card h5 {
+            color: #fff; width: 100%; text-align: center; padding: 30px;
+            font-size: 1.8rem; font-weight: 800; z-index: 2;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.8); letter-spacing: 1px;
+        }
 
         .reveal { opacity: 0; transform: translateY(40px); transition: 1s all ease; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        footer { background: #111; color: #eee; padding: 80px 5% 30px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 50px; }
-        .contact-info p { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
-        .contact-info i { color: var(--secondary-yellow); width: 20px; }
-
+        footer { background: #0a0a0a; color: #eee; padding: 80px 8% 30px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 50px; margin-bottom: 50px; }
+        
         @media (max-width: 768px) {
-            nav { padding: 10px 3%; }
+            .nav-links { display: none; }
+            .hero { background-image: url('BM.jpeg'); background-attachment: scroll; }
             section { padding: 60px 5%; }
-            .hero {
-                background-image: url('BM.jpeg');
-                background-attachment: scroll;
-            }
+            .product-card { height: 350px; }
         }
     </style>
 </head>
@@ -121,24 +147,24 @@
 
     <nav>
         <div class="logo"><img src="شعار كاندي باندا.jpeg" alt="Candy Panda Global"></div>
+        <ul class="nav-links">
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#offer">What We Offer</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
         <div class="controls">
             <button class="control-btn" onclick="toggleDark()"><i id="themeIcon" class="fas fa-moon"></i></button>
         </div>
     </nav>
 
-    <section class="hero">
-        <div class="hero-content">
-            <a href="#contact" class="btn-main" style="padding: 15px 40px; background: var(--primary-gold); color: #2d2d2d; border-radius: 50px; text-decoration: none; font-weight: 800; box-shadow: 0 10px 20px rgba(255, 193, 7, 0.3); display: inline-block;">
-                <span>Contact Us</span>
-            </a>
-        </div>
-    </section>
+    <section class="hero" id="home"></section>
 
-    <section class="reveal">
+    <section class="reveal" id="overview">
         <h2 class="section-title">Company Overview</h2>
-        <div style="max-width: 900px; margin: 0 auto; text-align: center; margin-bottom: 40px;">
-            <p style="font-size: 1.2rem; line-height: 1.8;">
-                Candy Panda Global Co., Ltd is a China-based export and sourcing company specializing in confectionery and snack products for international markets. •We provide best Chinese products for distributors and brand owners across the Middle East, Africa, and Europe.
+        <div style="max-width: 1000px; margin: 0 auto; text-align: center; margin-bottom: 60px;">
+            <p style="font-size: 1.3rem; line-height: 1.8; opacity: 0.9;">
+                Candy Panda Global Co., Ltd is a China-based export and sourcing company specializing in confectionery and snack products for international markets. We provide best Chinese products for distributors and brand owners across the Middle East, Africa, and Europe.
             </p>
         </div>
         
@@ -156,7 +182,7 @@
         </div>
     </section>
 
-    <section class="reveal" style="background: rgba(128,128,128,0.03)">
+    <section class="reveal" id="offer" style="background: rgba(128,128,128,0.03)">
         <h2 class="section-title">What We Offer</h2>
         <div class="grid">
             <div class="card">
@@ -186,21 +212,36 @@
         </div>
     </section>
 
-    <section class="reveal">
+    <section class="reveal" id="products">
         <h2 class="section-title">Product Categories</h2>
         <div class="grid">
-            <div class="card" style="text-align: center;"><h5>Candies & Gummies</h5></div>
-            <div class="card" style="text-align: center;"><h5>Chocolate Compounds</h5></div>
-            <div class="card" style="text-align: center;"><h5>Biscuits & Wafers</h5></div>
-            <div class="card" style="text-align: center;"><h5>Jelly & Soft Sweets</h5></div>
-            <div class="card" style="text-align: center;"><h5>Chewing Gum</h5></div>
+            <div class="card product-card">
+                <div class="product-card-bg" style="background-image: url('1.png');"></div>
+                <h5>Candies & Gummies</h5>
+            </div>
+            <div class="card product-card">
+                <div class="product-card-bg" style="background-image: url('2.png');"></div>
+                <h5>Chocolate Compounds</h5>
+            </div>
+            <div class="card product-card">
+                <div class="product-card-bg" style="background-image: url('3.png');"></div>
+                <h5>Biscuits & Wafers</h5>
+            </div>
+            <div class="card product-card">
+                <div class="product-card-bg" style="background-image: url('4.png');"></div>
+                <h5>Jelly & Soft Sweets</h5>
+            </div>
+            <div class="card product-card">
+                <div class="product-card-bg" style="background-image: url('5.png');"></div>
+                <h5>Chewing Gum</h5>
+            </div>
         </div>
     </section>
 
     <footer id="contact">
         <div class="footer-grid">
             <div class="contact-info">
-                <h3>Candy Panda Global Co., Ltd.</h3>
+                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">Candy Panda Global Co., Ltd.</h3>
                 <p><i class="fas fa-id-card"></i> Unified Code: 91440106MAK35QR14T</p>
                 <p><i class="fas fa-map-marker-alt"></i> Guangzhou Bank Tower, No. 30 Zhujiang East Road, Tianhe District, Guangzhou, China</p>
                 <p><i class="fas fa-phone-alt"></i> +8619700279645</p>
@@ -208,20 +249,20 @@
                 <p><i class="fas fa-phone-alt"></i> +966 54 675 5575</p>
             </div>
             <div>
-                <h4>Target Markets</h4>
-                <ul>
+                <h4 style="margin-bottom: 20px;">Target Markets</h4>
+                <ul style="list-style: none; opacity: 0.8;">
                     <li>Middle East (GCC Countries)</li>
                     <li>Africa (North, West, East)</li>
                     <li>Europe Markets</li>
                 </ul>
             </div>
             <div>
-                <h4>Why Us?</h4>
-                <p>Direct access to top Chinese factories with flexible MOQs and long-term partnership approach.</p>
+                <h4 style="margin-bottom: 20px;">Why Us?</h4>
+                <p style="opacity: 0.8;">Direct access to top Chinese factories with flexible MOQs and long-term partnership approach.</p>
             </div>
         </div>
-        <hr style="opacity: 0.1; margin-bottom: 20px;">
-        <center>© 2026 Candy Panda Global. All Rights Reserved.</center>
+        <hr style="opacity: 0.1; margin-bottom: 30px;">
+        <center style="opacity: 0.6; font-size: 13px;">© 2026 Candy Panda Global. All Rights Reserved.</center>
     </footer>
 
     <script>
