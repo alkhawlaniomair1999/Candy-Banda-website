@@ -45,7 +45,6 @@
             backdrop-filter: blur(10px); border-bottom: 1px solid rgba(128,128,128,0.1);
         }
 
-        /* Logo Animation */
         @keyframes floatLogo {
             0% { transform: translateY(0px) rotate(0deg); }
             50% { transform: translateY(-6px) rotate(2deg); }
@@ -66,7 +65,7 @@
         }
         body.dark-mode .control-btn { border-color: var(--secondary-yellow); color: var(--secondary-yellow); }
 
-        /* --- HERO SECTION MODIFIED FOR IMAGES --- */
+        /* Hero Section */
         .hero {
             min-height: 100vh; 
             display: flex; 
@@ -74,35 +73,11 @@
             justify-content: center;
             text-align: center; 
             padding: 120px 20px 60px;
-            
-            /* Laptop Banner (Default) */
-            background-image:url('B.jpeg');
-            background-size:cover;
+            background-image: url('B.jpeg');
+            background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-attachment: fixed; /* Optional: Parallax effect */
-        }
-
-        .hero-content h1 {
-            font-size: clamp(2.2rem, 8vw, 4rem); line-height: 1.1;
-            /* Made text Gold & White to pop against the image */
-            color: #fff;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            margin-bottom: 20px; font-weight: 800;
-        }
-        
-        .hero-content h1 span {
-            color: var(--primary-gold);
-        }
-
-        .hero-content p { 
-            font-size: clamp(1.1rem, 3vw, 1.5rem); 
-            margin-bottom: 35px; 
-            max-width: 800px; 
-            margin-left: auto; 
-            margin-right: auto;
-            color: #f0f0f0; /* White text for readability on image */
-            text-shadow: 0 2px 5px rgba(0,0,0,0.7);
+            background-attachment: fixed;
         }
 
         /* General Section Styling */
@@ -124,26 +99,20 @@
         .card ul li { margin-bottom: 8px; position: relative; padding-left: 20px; }
         .card ul li::before { content: '•'; color: var(--secondary-yellow); position: absolute; left: 0; font-weight: bold; }
 
-        /* Reveal Animation */
         .reveal { opacity: 0; transform: translateY(40px); transition: 1s all ease; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* Footer */
         footer { background: #111; color: #eee; padding: 80px 5% 30px; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 50px; }
         .contact-info p { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
         .contact-info i { color: var(--secondary-yellow); width: 20px; }
 
-        /* --- MOBILE MEDIA QUERY --- */
         @media (max-width: 768px) {
             nav { padding: 10px 3%; }
-            .hero-content h1 { font-size: 2.4rem; }
             section { padding: 60px 5%; }
-            
-            /* Switch to Mobile Banner */
             .hero {
-                background-image:url('BM.jpeg');
-                background-attachment: scroll; /* Better performance on mobile */
+                background-image: url('BM.jpeg');
+                background-attachment: scroll;
             }
         }
     </style>
@@ -169,7 +138,7 @@
         <h2 class="section-title">Company Overview</h2>
         <div style="max-width: 900px; margin: 0 auto; text-align: center; margin-bottom: 40px;">
             <p style="font-size: 1.2rem; line-height: 1.8;">
-               Candy Panda Global Co., Ltd is a China-based export and sourcing company specializing in confectionery and snack products for international markets. •We connect leading Chinese factories with distributors and brand owners across the Middle East, Africa, and Europe.
+                Candy Panda Global Co., Ltd is a China-based export and sourcing company specializing in confectionery and snack products for international markets. •We provide best Chinese products for distributors and brand owners across the Middle East, Africa, and Europe.
             </p>
         </div>
         
@@ -193,8 +162,7 @@
             <div class="card">
                 <h4>Factory Network</h4>
                 <ul>
-                    <li>Direct collaboration with certified factories</li>
-                    <li>Factory-level pricing</li>
+                    <li>Providing the best quality at the lowest price for target products</li>
                     <li>Stable production capacity</li>
                     <li>Quality & specification control</li>
                 </ul>
@@ -236,6 +204,8 @@
                 <p><i class="fas fa-id-card"></i> Unified Code: 91440106MAK35QR14T</p>
                 <p><i class="fas fa-map-marker-alt"></i> Guangzhou Bank Tower, No. 30 Zhujiang East Road, Tianhe District, Guangzhou, China</p>
                 <p><i class="fas fa-phone-alt"></i> +8619700279645</p>
+                <p><i class="fas fa-phone-alt"></i> +966 50 845 4379</p>
+                <p><i class="fas fa-phone-alt"></i> +966 54 675 5575</p>
             </div>
             <div>
                 <h4>Target Markets</h4>
